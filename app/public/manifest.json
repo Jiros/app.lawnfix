@@ -1,0 +1,29 @@
+{
+  "name": "LawnFix",
+  "short_name": "LawnFix",
+  "description": "Lawn diagnosis and repair — photograph your lawn for instant AI advice.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#EAF7EE",
+  "theme_color": "#15803d",
+  "orientation": "portrait-primary",
+  "categories": ["utilities"],
+  "icons": [
+    { "src": "/android-chrome-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Diagnose My Lawn",
+      "short_name": "Diagnose",
+      "url": "/scan",
+      "description": "Photograph your lawn for an instant AI diagnosis"
+    },
+    {
+      "name": "Fix Plan",
+      "short_name": "Fix",
+      "url": "/fix",
+      "description": "View your personalised lawn fix plan"
+    }
+  ]
+}

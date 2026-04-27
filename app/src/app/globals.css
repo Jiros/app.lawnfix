@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Prevent text size adjustment after device orientation change */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  html {
+    /* Smooth scroll + safe-area insets for notched phones */
+    scroll-behavior: smooth;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+
+  /* Ensure all interactive elements meet 56px touch target */
+  button, a, input, select {
+    min-height: 44px;
+  }
+}
+
+@layer utilities {
+  .tap-target {
+    @apply min-h-tap flex items-center;
+  }
+}

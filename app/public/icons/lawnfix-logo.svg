@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="wave1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E6B1E"/>
+      <stop offset="100%" stop-color="#2D9C2D"/>
+    </linearGradient>
+    <linearGradient id="wave2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2D9C2D"/>
+      <stop offset="100%" stop-color="#4DBF56"/>
+    </linearGradient>
+    <linearGradient id="wave3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4DBF56"/>
+      <stop offset="100%" stop-color="#72D67A"/>
+    </linearGradient>
+    <clipPath id="lens-clip">
+      <circle cx="220" cy="220" r="131"/>
+    </clipPath>
+  </defs>
+
+  <!-- Magnifying glass handle -->
+  <rect x="340" y="340" width="140" height="40" rx="20" ry="20"
+        transform="rotate(45 410 360)"
+        fill="#1E6B1E"/>
+
+  <!-- Magnifying glass ring -->
+  <circle cx="220" cy="220" r="150" stroke="#1E6B1E" stroke-width="38" fill="#FFFFFF"/>
+
+  <!-- Vertical grass waves inside the lens -->
+  <g clip-path="url(#lens-clip)" stroke-linecap="round" fill="none" stroke-width="22">
+    <path d="M 155 80 Q 130 150, 155 220 T 155 360" stroke="url(#wave1)"/>
+    <path d="M 220 80 Q 248 150, 220 220 T 220 360" stroke="url(#wave2)"/>
+    <path d="M 285 80 Q 260 150, 285 220 T 285 360" stroke="url(#wave3)"/>
+  </g>
+</svg>

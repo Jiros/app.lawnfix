@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Next.js
+app/.next/
+app/out/
+
+# PWA generated files
+app/public/sw.js
+app/public/workbox-*.js
+app/public/worker-*.js
+app/public/sw.js.map
+app/public/workbox-*.js.map
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Terraform
+infra/.terraform/
+infra/.terraform.lock.hcl
+infra/terraform.tfstate
+infra/terraform.tfstate.backup
+infra/*.tfvars
+!infra/example.tfvars
+
+# Wrangler
+worker/.wrangler/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
