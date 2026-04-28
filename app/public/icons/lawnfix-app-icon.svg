@@ -32,10 +32,10 @@
   <!-- Magnifying glass ring -->
   <circle cx="220" cy="220" r="150" stroke="#1E6B1E" stroke-width="38" fill="#FFFFFF"/>
 
-  <!-- Vertical grass waves inside the lens -->
+  <!-- PoolScan waves rotated 90° CCW around lens centre (220,220): (x,y)→(440-y, x) -->
   <g clip-path="url(#lens-clip)" stroke-linecap="round" fill="none" stroke-width="22">
-    <path d="M 155 80 Q 130 150, 155 220 T 155 360" stroke="url(#wave1)"/>
-    <path d="M 220 80 Q 195 150, 220 220 T 220 360" stroke="url(#wave2)"/>
-    <path d="M 285 80 Q 260 150, 285 220 T 285 360" stroke="url(#wave3)"/>
+    <path d="M 175 130 Q 200 170, 175 220 T 175 310" stroke="url(#wave1)"/>
+    <path d="M 215 130 Q 240 170, 215 220 T 215 310" stroke="url(#wave2)"/>
+    <path d="M 255 130 Q 280 170, 255 220 T 255 310" stroke="url(#wave3)"/>
   </g>
 </svg>
