@@ -35,7 +35,7 @@
   <!-- Vertical grass waves inside the lens -->
   <g clip-path="url(#lens-clip)" stroke-linecap="round" fill="none" stroke-width="22">
     <path d="M 155 80 Q 130 150, 155 220 T 155 360" stroke="url(#wave1)"/>
-    <path d="M 220 80 Q 248 150, 220 220 T 220 360" stroke="url(#wave2)"/>
+    <path d="M 220 80 Q 195 150, 220 220 T 220 360" stroke="url(#wave2)"/>
     <path d="M 285 80 Q 260 150, 285 220 T 285 360" stroke="url(#wave3)"/>
   </g>
 </svg>
