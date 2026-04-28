@@ -24,9 +24,9 @@
   <!-- Rounded-square background tile (iOS/Android style) -->
   <rect x="0" y="0" width="512" height="512" rx="112" ry="112" fill="url(#bg)"/>
 
-  <!-- Magnifying glass handle -->
-  <rect x="340" y="340" width="140" height="40" rx="20" ry="20"
-        transform="rotate(45 410 360)"
+  <!-- Magnifying glass handle — rotated around lens centre so it sits perpendicular to ring -->
+  <rect x="345" y="200" width="150" height="40" rx="20" ry="20"
+        transform="rotate(45, 220, 220)"
         fill="#1E6B1E"/>
 
   <!-- Magnifying glass ring -->
