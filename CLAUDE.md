@@ -1,6 +1,6 @@
 # LawnFix — Project Summary
 
-*Last updated: 27 April 2026*
+*Last updated: 30 April 2026*
 
 ---
 
@@ -96,8 +96,28 @@ Primary image: close-up of problem area. Optional context image: wider shot of f
 - Model pinned: `claude-sonnet-4-6` (update intentionally after testing)
 - API version pinned: `2023-06-01`
 - `max_tokens: 1024` (larger than PoolScan — diagnosis JSON is richer)
-- `sanitizeDiagnosis()` validates all fields; `isValidIssue()` filters malformed issues
-- Optional `location` and `grassType` hints in request body for more accurate output
+- `sanitizeDiagnosis()` validates structure and sanitizes all string fields (HTML strip, control chars, length caps)
+- `sanitizeIssue()` replaces `isValidIssue()` — returns `Issue | null` and sanitizes strings rather than just type-checking them
+- Optional `location` and `grassType` hints in request body — sanitized via `sanitizeHint()` before prompt interpolation
+
+### Security — AI endpoint (reviewed April 2026)
+
+`functions/api/scan.ts` was audited and hardened in April 2026. Prior state and fixes:
+
+| Issue | Severity | Status |
+|---|---|---|
+| `location` / `grassType` interpolated raw into Claude prompt | HIGH | **Fixed** — `sanitizeHint()` strips newlines + control chars, caps at 100 chars |
+| All output string fields returned verbatim from `sanitizeDiagnosis()` | HIGH | **Fixed** — `safeStr()` strips HTML, strips control chars, caps per-field lengths |
+| No anti-injection instruction in prompt | MEDIUM | **Fixed** — both prompt paths now include explicit disregard instruction |
+| No server-side request authentication | MEDIUM | Unresolved — CORS blocks browser cross-origin only; `curl` / server-to-server calls bypass it |
+
+**When building `/scan`, `/fix`, `/history` pages:** render all diagnosis strings (`summary`, `issue.label`, `issue.steps[]`, `grassType`, `season`) as React text content — never `innerHTML` or `dangerouslySetInnerHTML`.
+
+**Consistent security baseline across both apps (established April 2026):**
+- No user-supplied text reaches the Claude prompt (LawnFix: sanitized to server hint strings; PoolScan label.ts: whitelist + validated numbers only; PoolScan scan.ts: image-only)
+- Anti-injection instruction in every Claude prompt
+- All string output from Claude sanitized before returning to client
+- Numeric output coerced to typed values (`number | null`) where possible — eliminates string injection entirely
 
 ---
 
